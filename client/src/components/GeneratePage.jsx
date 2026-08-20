@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from '../api';
 import axios from 'axios';
 import { motion, AnimatePresence } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
@@ -40,7 +41,7 @@ export default function GeneratePage({ isDarkMode, showToast }) {
     if (!techStack) return;
     setLoading(true); setResult('');
     try {
-      const response = await axios.post('http://localhost:5000/api/generate-project', { techStack: `Scale: ${scale}. Tech Stack: ${techStack}.` });
+      const response = await axios.post(`${API_BASE_URL}/api/generate-project`, { techStack: `Scale: ${scale}. Tech Stack: ${techStack}.` });
       setResult(response.data.data);
     } catch (error) {
       if (error.response?.status === 429) {
