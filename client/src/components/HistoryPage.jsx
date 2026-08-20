@@ -3,13 +3,14 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import ReactMarkdown from 'react-markdown';
 import { History, Trash2 } from 'lucide-react';
+import { API_BASE_URL } from '../api';
 
 export default function HistoryPage({ isDarkMode }) {
   const [history, setHistory] = useState([]);
   const [loadingHistory, setLoadingHistory] = useState(true);
 
   const fetchHistory = () => {
-    axios.get('http://localhost:5000/api/projects')
+    axios.get(`${API_BASE_URL}/api/projects`)
       .then(res => setHistory(res.data))
       .catch(() => console.error("Failed to fetch history"))
       .finally(() => setLoadingHistory(false));
