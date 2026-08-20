@@ -1,0 +1,18 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --bg-dark: #050508;
+  --bg-light: #ffffff;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.prose pre {
+  background-color: #0f172a !important;
+  border: 1px solid rgba(255,255,255,0.1);
+}
