@@ -1,6 +1,8 @@
 # HackMinds 🧠
 **AI-Powered System Architecture Synthesizer**
 
+[![Live Demo](https://img.shields.io/badge/Live_Demo-hackminds.vercel.app-6366f1?style=for-the-badge)](https://hackminds.vercel.app/)
+
 HackMinds is a full-stack SaaS platform designed to solve the "blank canvas" problem developers face at the start of a project. By simply inputting a desired technology stack and project scale, the application utilizes a Google Gemini neural engine to instantly generate a comprehensive, production-ready software blueprint, complete with database schemas and a generated pitch deck.
 
 ---
@@ -10,26 +12,26 @@ HackMinds is a full-stack SaaS platform designed to solve the "blank canvas" pro
 * **System Architecture Synthesis:** Generates production-ready blueprints, handling everything from monolithic structures to complex microservices based on your specific tech stack.
 * **Intelligent Schema Design:** Outputs optimized, scalable data models tailored for your chosen relational or NoSQL databases.
 * **Automated Pitch Deck Generation:** Instantly creates 5-slide presentation outlines and elevator pitches tailored to impress hackathon judges and investors.
-* **Project Memory:** Automatically saves generated architectures to a MongoDB database, allowing users to review, manage, and delete past neural blueprints from a centralized dashboard.
-* **Premium UI/UX:** Features a highly immersive, dark-mode-first interface built with Framer Motion, glassmorphism, and responsive Tailwind CSS layouts.
+* **Project Memory & Management:** Automatically saves generated architectures to a MongoDB database. Users can review past blueprints from a centralized dashboard and securely delete old iterations.
+* **Premium UI/UX:** Features a highly immersive, dark-mode-first interface built with Framer Motion, glassmorphism, dynamic border-beams, and responsive Tailwind CSS layouts.
 
 ---
 
 ## 🛠️ Tech Stack
 
-### Frontend
+### Frontend (Deployed on Vercel)
 * **Framework:** React (via Vite)
 * **Styling:** Tailwind CSS v4
 * **Animations:** Framer Motion, Typewriter-Effect
 * **Icons:** Lucide-React
 * **Markdown Parsing:** React-Markdown
 
-### Backend
+### Backend (Deployed on Render)
 * **Runtime:** Node.js
 * **Framework:** Express.js
 * **Database:** MongoDB & Mongoose
 * **AI Engine:** Google Generative AI (gemini-1.5-flash)
-* **Architecture:** MVC (Model-View-Controller) Pattern
+* **Architecture:** Enterprise MVC (Model-View-Controller) Pattern
 
 ---
 
@@ -50,16 +52,17 @@ HackMinds/
 │   │   │   ├── Toast.jsx
 │   │   │   └── TopNavbar.jsx
 │   │   ├── App.jsx             # React Router Setup
+│   │   ├── api.js              # Centralized API Configuration
 │   │   ├── index.css           # Tailwind & Custom CSS
 │   │   └── main.jsx
-│   ├── package.json
-│   └── vite.config.js
+│   ├── vercel.json             # Vercel Routing Configuration
+│   └── package.json
 │
 ├── server/                     # Express Backend
 │   ├── config/
 │   │   └── db.js               # MongoDB Connection
 │   ├── controllers/
-│   │   └── projectController.js# AI & DB Logic
+│   │   └── projectController.js# AI & DB Logic (CRUD operations)
 │   ├── models/
 │   │   └── Project.js          # Mongoose Schema
 │   ├── routes/
@@ -71,7 +74,7 @@ HackMinds/
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ Local Installation & Setup
 
 ### Prerequisites
 Make sure you have the following installed on your machine:
@@ -112,6 +115,11 @@ cd client
 npm install
 ~~~
 
+Create a `.env` file in the `client` root if you need to override the default local API URL:
+~~~env
+VITE_API_BASE_URL=http://localhost:5000
+~~~
+
 Start the Vite development server:
 ~~~bash
 npm run dev
@@ -128,7 +136,7 @@ The application will now be running at `http://localhost:5173`.
 3. **Set Scale:** Choose between *Hackathon MVP*, *Startup Beta*, or *Enterprise Grade*.
 4. **Generate:** Click "Ignite Architecture" and wait for the Gemini AI to synthesize your markdown blueprint.
 5. **Pitch Deck:** Once generated, click "Build Pitch Deck" to instantly append a presentation outline.
-6. **Manage:** Visit the "History" tab to view or delete previously generated blueprints.
+6. **Manage:** Visit the "History" tab to view your past blueprints. Hover over any card and click the Trash icon to securely delete it from the database.
 
 ---
 
