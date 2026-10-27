@@ -4,6 +4,6 @@ const { generateProject, getProjectsHistory, deleteProject } = require('../contr
 
 router.post('/generate-project', generateProject);
 router.get('/projects', getProjectsHistory);
-router.delete('/projects/:id', deleteProject); // NEW DELETE ROUTE
+router.delete('/projects/:id', deleteProject);                               // NEW DELETE ROUTE
 
 module.exports = router;

@@ -14,6 +14,8 @@ export default function HistoryPage({ isDarkMode }) {
       .then(res => setHistory(res.data))
       .catch(() => console.error("Failed to fetch history"))
       .finally(() => setLoadingHistory(false));
+
+
   };
 
   useEffect(() => {
@@ -26,7 +28,7 @@ export default function HistoryPage({ isDarkMode }) {
       await axios.delete(`http://localhost:5000/api/projects/${id}`);
     } catch (error) {
       console.error("Delete failed", error);
-      fetchHistory(); 
+      fetchHistory();
     }
   };
 
@@ -52,7 +54,12 @@ export default function HistoryPage({ isDarkMode }) {
               </div>
               <h3 className="text-xl font-bold mb-4 dark:text-white pr-10">Arsenal: {proj.techStack}</h3>
               <div className={`prose prose-sm max-w-none ${isDarkMode ? 'prose-invert' : 'prose-slate'}`}>
-                <ReactMarkdown>{proj.aiResponse.substring(0, 300) + "..."}</ReactMarkdown>
+                <div className="h-100 overflow-y-scroll [&::-webkit-scrollbar]:w-2
+     [&::-webkit-scrollbar-track]:bg-slate-100
+     [&::-webkit-scrollbar-thumb]:bg-slate-400
+     [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:rounded-full" >
+                  <ReactMarkdown>{proj.aiResponse}</ReactMarkdown>
+                </div>
               </div>
             </motion.div>
           )) : (
