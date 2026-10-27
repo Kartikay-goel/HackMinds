@@ -30,7 +30,7 @@ HackMinds is a full-stack SaaS platform designed to solve the "blank canvas" pro
 * **Runtime:** Node.js
 * **Framework:** Express.js
 * **Database:** MongoDB & Mongoose
-* **AI Engine:** Google Generative AI (gemini-1.5-flash)
+* **AI Engine:** Groq( model = openai/gpt-oss-20b)
 * **Architecture:** Enterprise MVC (Model-View-Controller) Pattern
 
 ---
@@ -101,7 +101,7 @@ Create a `.env` file in the `server` root and add the following variables:
 | :--- | :--- | :--- |
 | `PORT` | The port your server will run on. | `5000` |
 | `MONGO_URI` | Your MongoDB connection string. | `mongodb://localhost:27017/hackminds` |
-| `GEMINI_API_KEY` | Your Google AI Studio API key. | `AIzaSyYourKeyHere...` |
+| `Groq_API_KEY` | Your Google AI Studio API key. | `gsk_P...` |
 
 Start the backend server:
 ~~~bash

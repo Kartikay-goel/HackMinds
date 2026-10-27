@@ -41,7 +41,7 @@ export default function GeneratePage({ isDarkMode, showToast }) {
     if (!techStack) return;
     setLoading(true); setResult('');
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/generate-project`, { techStack: `Scale: ${scale}. Tech Stack: ${techStack}.` });
+      const response = await axios.post(`${API_BASE_URL}/api/generate-project`, { projectScale:`${scale}`,techStack: `${techStack}`,generatePitch: false,currentBlueprint: "" });
       setResult(response.data.data);
     } catch (error) {
       if (error.response?.status === 429) {
@@ -60,7 +60,11 @@ export default function GeneratePage({ isDarkMode, showToast }) {
     setLoading(true);
     try {
       const response = await axios.post('http://localhost:5000/api/generate-project', { 
-        techStack: `Create a 5-slide hackathon pitch deck outline based on this exact architecture: ${result.substring(0, 500)}...` 
+        projectScale: `${scale}`,
+      techStack: `${techStack}`,
+      generatePitch: true,
+      currentBlueprint: result
+       
       });
       setResult(prev => prev + "\n\n---\n\n" + response.data.data);
       showToast("Pitch Deck Appended!");
