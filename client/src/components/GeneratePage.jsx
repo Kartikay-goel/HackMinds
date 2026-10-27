@@ -59,7 +59,7 @@ export default function GeneratePage({ isDarkMode, showToast }) {
     if (!result) return;
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/api/generate-project', { 
+      const response = await axios.post('${API_BASE_URL}/api/generate-project', { 
         projectScale: `${scale}`,
       techStack: `${techStack}`,
       generatePitch: true,
