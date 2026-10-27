@@ -30,7 +30,7 @@ HackMinds is a full-stack SaaS platform designed to solve the "blank canvas" pro
 * **Runtime:** Node.js
 * **Framework:** Express.js
 * **Database:** MongoDB & Mongoose
-* **AI Engine:** Groq( model = openai/gpt-oss-20b)
+* **AI Engine:** Groq (model = openai/gpt-oss-20b)
 * **Architecture:** Enterprise MVC (Model-View-Controller) Pattern
 
 ---
