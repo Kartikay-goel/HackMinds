@@ -89,7 +89,7 @@ cd HackMinds
 ~~~
 
 ### 2. Backend Setup
-Navigate to the server directory and install dependencies:
+Navigate to the server directory and install dependencies:-
 ~~~bash
 cd server
 npm install
